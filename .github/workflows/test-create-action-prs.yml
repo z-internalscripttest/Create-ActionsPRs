@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
       
       - run: |
-          ./Create-ActionsPRs.ps1
+          powershell Create-ActionsPRs.ps1
           GetReposFromOrganization -Organization z-internalscripttest
         shell: powershell
         env:
