@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v2
       
       - run: |
-          dir
-          
+          ./Create-ActionsPRs.ps1
+          CreatePullRequestForRepositories -Repositories (GetReposFromOrganization -Organization z-internalscripttest) -CommitMessage "Automatically add workflow" -PRBody "This is the PR body" -BranchName "main"
         shell: pwsh
+        env:
+         GITHUB_TOKEN: ${{ secrets.WORKFLOWTOKEN }}
