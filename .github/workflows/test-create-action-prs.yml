@@ -17,8 +17,12 @@ jobs:
       - name: Checkout code to runner
         uses: actions/checkout@v2
       
-      - run: |
+      -
+        run: |
          curl --help
+        shell: bash
+      
+      - run: |
           ./CreatePullRequestForRepositories.ps1
         shell: powershell
         env:
