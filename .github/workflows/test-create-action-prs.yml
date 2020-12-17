@@ -19,7 +19,7 @@ jobs:
       
       - run: |
           ./Create-ActionsPRs.ps1
-          CreatePullRequestForRepositories -Repositories (GetReposFromOrganization -Organization z-internalscripttest) -CommitMessage "Automatically add workflow" -PRBody "This is the PR body" -BranchName "main"
+          GetReposFromOrganization -Organization z-internalscripttest
         shell: powershell
         env:
          GITHUB_TOKEN: ${{ secrets.WORKFLOWTOKEN }}
