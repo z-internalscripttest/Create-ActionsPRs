@@ -19,7 +19,7 @@ jobs:
       
       -
         run: |
-         curl --help
+         curl -H "Authorization: Bearer ${{ secrets.WORKFLOWTOKEN }}" -X GET https://api.github.com/orgs/z-internalscripttest/repos
         shell: bash
       
       - run: |
