@@ -17,13 +17,9 @@ jobs:
       - name: Checkout code to runner
         uses: actions/checkout@v2
       
-      -
-        run: |
-         curl -H "Authorization: Bearer ${{ secrets.WORKFLOWTOKEN }}" -X GET https://api.github.com/orgs/z-internalscripttest/repos
-        shell: bash
-      
       - run: |
-          ./CreatePullRequestForRepositories.ps1
+          ."./Create-ActionsPRs.ps1"
+          GetReposFromOrganization -Organization z-internalscripttest
         shell: powershell
         env:
          GITHUB_TOKEN: ${{ secrets.WORKFLOWTOKEN }}
