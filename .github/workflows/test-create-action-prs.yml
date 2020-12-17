@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
         
     steps: 
       - name: Checkout code to runner
@@ -20,6 +20,6 @@ jobs:
       - run: |
           ./Create-ActionsPRs.ps1
           CreatePullRequestForRepositories -Repositories (GetReposFromOrganization -Organization z-internalscripttest) -CommitMessage "Automatically add workflow" -PRBody "This is the PR body" -BranchName "main"
-        shell: pwsh
+        shell: powershell
         env:
          GITHUB_TOKEN: ${{ secrets.WORKFLOWTOKEN }}
