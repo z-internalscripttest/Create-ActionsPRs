@@ -18,8 +18,7 @@ jobs:
         uses: actions/checkout@v2
       
       - run: |
-          powershell ./Create-ActionsPRs.ps1 -global true
-          GetReposFromOrganization -Organization z-internalscripttest
+          ./GetReposFromOrganization.ps1
         shell: powershell
         env:
          GITHUB_TOKEN: ${{ secrets.WORKFLOWTOKEN }}
